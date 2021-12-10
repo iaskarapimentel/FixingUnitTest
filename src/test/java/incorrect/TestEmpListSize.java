@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,8 +13,13 @@ import main.java.EmployeeManager;
 
 class TestEmpListSize {
 
-	EmployeeManager EM = null;
-	
+	EmployeeManager EM = new EmployeeManager();
+
+	@BeforeEach
+	public void init(){
+		EM.initialize();
+	}
+
 	@Test
 	@DisplayName("Correct initial length of Employee List")
 	void testEmpListLength() {
